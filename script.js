@@ -100,6 +100,7 @@ const greeArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greeArr('hi')('tharly');
 
+*/
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -110,7 +111,7 @@ const lufthansa = {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flighNum}`
     );
-    this.bookings.push({ flight: `${this.iataCode} ${flighNum}` });
+    this.bookings.push({ flight: `${this.iataCode} ${flighNum}`, name });
   },
 };
 
@@ -146,4 +147,49 @@ const flightData = [583, 'George Cooper'];
 book.apply(swiss, flightData);
 console.log(swiss);
 
-*/
+// Bind method
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+
+const bookWE23 = book.bind(eurowings, 23);
+
+bookWE23('Jonas rodrigues');
+bookWE23('Mr. Tharly');
+
+// with Event Listener
+
+lufthansa.planes = 300;
+lufthansa.buyplane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+// lufthansa.buyplane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyplane.bind(lufthansa));
+
+// partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
