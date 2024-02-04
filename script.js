@@ -100,7 +100,7 @@ const greeArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greeArr('hi')('tharly');
 
-*/
+
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -193,3 +193,4 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+*/
