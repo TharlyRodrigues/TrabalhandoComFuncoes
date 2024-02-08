@@ -71,7 +71,7 @@ document
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
-*/
+
 const secureBooking = function () {
   let passengerCount = 0;
 
@@ -86,3 +86,33 @@ const booker = secureBooking();
 booker();
 booker();
 booker();
+
+console.dir(booker);
+
+
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+g();
+f();
+console.dir(f);
+
+// re-assigning f function
+
+h();
+f();
+
+console.dir(f);
+*/
+// exemple 2
