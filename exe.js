@@ -72,3 +72,17 @@ document
 
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 */
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
